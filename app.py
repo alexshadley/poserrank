@@ -1,6 +1,12 @@
+import sqlite3
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
+
+def getDB():
+	db = sqlite3.connect('db/dev.db')
+	validate(db)
+	return db
 
 @app.route('/')
 def home():
