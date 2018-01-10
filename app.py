@@ -3,9 +3,9 @@ from flask import Flask
 from flask import render_template
 app = Flask(__name__)
 
+# returns a connection to the database
 def getDB():
 	db = sqlite3.connect('db/dev.db')
-	validate(db)
 	return db
 
 @app.route('/')
