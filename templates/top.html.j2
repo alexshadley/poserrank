@@ -10,6 +10,13 @@
 		<link rel="stylesheet" href="static/index.css">
 	</head>
 	<body>
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="{{ url_for('index') }}">Home</a>
+				<a class="navbar-item" href="{{ url_for('top') }}">Top</a>
+			</div>
+		</nav>
+
 		<section class="hero">
 			<div class="hero-body">
 				<div class="container">

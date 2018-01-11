@@ -10,6 +10,13 @@
 		<link rel="stylesheet" href="static/index.css">
 	</head>
 	<body>
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="{{ url_for('index') }}">Home</a>
+				<a class="navbar-item" href="{{ url_for('top') }}">Top</a>
+			</div>
+		</nav>
+
 		<section class="section">
 			<div class="container has-text-centered">
 				<h1 class="title  index-title">PoserRank</h1>
