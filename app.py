@@ -23,7 +23,7 @@ def get_poser_by_name(queryName):
 	return result
 
 @app.route('/')
-def home():
+def index():
 	return render_template('index.html.j2')
 
 @app.route('/top/')
