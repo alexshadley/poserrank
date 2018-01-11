@@ -23,26 +23,18 @@
 			<div class="container">
 				<table class="table">
 					<thead>
-						<th>Rank</th>
+						<th>Ranking</th>
 						<th>Name</th>
 						<th>Score</th>
 					</thead>
 					<tbody>
+					{% for poser in posers %}
 						<tr>
-							<td>1</td>
-							<td>Alex Shadley</td>
-							<td>69</td>
+							<td>{{ loop.index }}</td>
+							<td>{{ poser['name'] }}</td>
+							<td>{{ poser['score'] }}</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Justin Roderman</td>
-							<td>42</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Tim Larson</td>
-							<td>39</td>
-						</tr>
+					{% endfor %}
 					</tbody>
 				</table>
 			</div>
