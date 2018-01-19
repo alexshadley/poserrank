@@ -1,7 +1,3 @@
-* {
-	font-family: 'Anonymous Pro', monospace;
-}
-
 .index-title {
 	font-size: 120px;
 	letter-spacing: 30px;
@@ -10,22 +6,4 @@
 
 .index-subtitle {
 	font-size: 32px;
-}
-
-body, html {
-	height: 100%;
-	margin: 0;
-}
-
-.background {
-	/* The image used */
-	background-image: url("../static/background-blur.jpg");
-
-	/* Full height */
-	height: 100%;
-
-	/* Center and scale the image nicely */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
