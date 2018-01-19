@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>PoserRank - {% block page %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="{{ url_for('index') }}">Home</a>
+				<a class="navbar-item" href="{{ url_for('top') }}">Top</a>
+			</div>
+		</nav>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>
