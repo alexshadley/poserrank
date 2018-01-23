@@ -18,11 +18,11 @@
 				<th>Score</th>
 			</thead>
 			<tbody>
-			{% for poser in posers %}
+			{% for user in users %}
 				<tr>
 					<td>{{ loop.index }}</td>
-					<td>{{ poser['name'] }}</td>
-					<td>{{ poser['score'] }}</td>
+					<td>{{ user.name }}</td>
+					<td>{{ user.score }}</td>
 				</tr>
 			{% endfor %}
 			</tbody>
