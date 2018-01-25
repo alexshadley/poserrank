@@ -1,6 +1,6 @@
 from flask import render_template, request
 from poserrank import app
-from poserrank.users import Users
+from poserrank.models import User
 
 @app.route('/')
 def index():
@@ -8,7 +8,7 @@ def index():
 
 @app.route('/top/')
 def top():
-	users = Users.get_users() # connect to the database and retrieve all posers
+	users = User.query.all() # connect to the database and retrieve all posers
 	return render_template('top.html.j2', users=users) # render the 'top' template, with posers as a local variable passed into the template
 
 @app.route('/login/', methods=['GET', 'POST'])
