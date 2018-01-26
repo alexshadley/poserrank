@@ -3,10 +3,11 @@
 A revolutionary website that allows users to stay up to date with the leading
 posers globally, as well as report acts of posery.
 
-# Dependencies
+# Software Packages Used
 
 1. Flask - http://flask.pocoo.org/
 2. Sqlite - https://www.sqlite.org/
+3. SQLAlchemy - https://www.sqlalchemy.org/
 
 # Submodules
 
@@ -26,17 +27,23 @@ git submodule init
 ```
 git submodule update
 ```
+# Before Installation
+
+Make sure you have sqlite3 and SQLAlchemy (not the python packages, just the regular packages) installed.
 
 # Installation and Use
 
 1. Clone the repository to a local repository of choice.
 2. Retrieve the Bulma repo at https://github.com/jgthms/bulma (see above instructions)
-3. Execute generate_db.py with python to generate the development database.
-4. Run app.py with python.
+3. Run the following pip command to install python dependencies from requirements.txt (alternatively using pip3 if your system uses it to handle python3 packages):
+```
+pip install -r requirements.txt
+```
+4. Run run.py with python.
 5. Open the index page on a web browser (localhost:5000 by default).
 
 # Useful Links
 
 * Python Sqlite3 Documentation - https://docs.python.org/3/library/sqlite3.html
 * Bulma Documentation - https://bulma.io/documentation/overview/start/
-* Using sass with Flask - https://stackoverflow.com/questions/14412677/using-sass-with-flask-and-jinja2
+* SQLAlchemy Flask Plugin - http://flask-sqlalchemy.pocoo.org/2.3/
