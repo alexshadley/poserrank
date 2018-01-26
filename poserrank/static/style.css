@@ -6428,4 +6428,5 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
-/*# sourceMappingURL=style.css.map */
+.title {
+  color: #ff9900; }

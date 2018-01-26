@@ -3,3 +3,8 @@
 $family-primary: 'Anonymous Pro', monospace;
 
 @import "../../bulma/bulma.sass";
+
+// Bulma doesn't have variables to edit this, but we can still strongarm it
+.title {
+  color: #ff9900;
+}
