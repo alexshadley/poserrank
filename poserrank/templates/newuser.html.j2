@@ -1,0 +1,49 @@
+{% extends "layout.html.j2" %}
+{% block page %}New user{% endblock %}
+{% block content %}
+
+<div class="container">
+	<section class="hero">
+		<div class="container has-text-centered">
+			<h1 class="title">New user</h1>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="columns">
+			<div class="column is-one-third is-offset-one-third">
+				<div class="box">
+					<form action="{{ url_for('newuser') }}" method="POST">
+						<div class="field">
+							<label class="label">Username</label>
+							<div class="control">
+								<input class="input" type="text" name="username" placeholder="Text input">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Full name</label>
+							<div class="control">
+								<input class="input" type="text" name="full_name" placeholder="Text input">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control">
+								<input class="input" type="text" name="email" placeholder="Text input">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Password</label>
+							<div class="control">
+								<input class="input" type="text" name="password" placeholder="Text input">
+							</div>
+						</div>
+						<input type="submit" value="log in">
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+{% endblock %}
