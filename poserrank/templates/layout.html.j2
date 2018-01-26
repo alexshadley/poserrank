@@ -20,7 +20,8 @@
 					<a class="navbar-item" href="{{ url_for('logout') }}">Logout</a>
 				{% else %}
 					<span class="navbar-item">Guest</span>
-					<a class="navbar-item" href="{{ url_for('login') }}">Login</a>
+					<a class="navbar-item" href="{{ url_for('login') }}">Sign in</a>
+					<a class="navbar-item" href="{{ url_for('newuser') }}">New user</a>
 				{% endif %}
 			</div>
 		</nav>
