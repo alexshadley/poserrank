@@ -6,9 +6,9 @@ from poserrank import db
 # in the context of database relationships, 'many' generally means 'more than
 # one'
 
-association_table = Table('Membership', db.Model.metadata,
-	db.Column('user_id', Integer, ForeignKey('Users.id')),
-	db.Column('group_id', Integer, ForeignKey('Groups.id'))
+association_table = db.Table('Membership', db.Model.metadata,
+	db.Column('user_id', db.Integer, db.ForeignKey('Users.id')),
+	db.Column('group_id', db.Integer, db.ForeignKey('Groups.id'))
 )
 
 class User(db.Model):
@@ -34,6 +34,7 @@ class Group(db.Model):
 	__tablename__ = 'Groups'
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(64), unique=True)
+	description = db.Column(db.Text)
 
 	users = db.relationship('User',
 		secondary=association_table,

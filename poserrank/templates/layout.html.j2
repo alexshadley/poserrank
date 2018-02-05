@@ -15,8 +15,8 @@
 				<a class="navbar-item" href="{{ url_for('top') }}">Top</a>
 			</div>
 			<div class="navbar-end">
-				{% if session['authenticated'] %}
-					<span class="navbar-item">{{ session['username'] }}</span>
+				{% if user in session %}
+					<span class="navbar-item">{{ session['user']['username'] }}</span>
 					<a class="navbar-item" href="{{ url_for('logout') }}">Logout</a>
 				{% else %}
 					<span class="navbar-item">Guest</span>

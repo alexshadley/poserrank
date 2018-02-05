@@ -1,0 +1,30 @@
+{% extends "layout.html.j2" %}
+{% block page %}Groups{% endblock %}
+{% block content %}
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">Your Groups</h1>
+			<h2 class="subtitle">Check up on your groups, invite new members, and make new groups.</h2>
+		</div>
+	</div>
+</section>
+<section class="section">
+	<div class="container">
+		<table class="table">
+			<thead>
+				<th>Name</th>
+				<th>Description</th>
+			</thead>
+			<tbody>
+			{% for group in groups %}
+				<tr>
+					<td>{{ group.name }}</td>
+					<td>{{ group.description }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
+{% endblock %}

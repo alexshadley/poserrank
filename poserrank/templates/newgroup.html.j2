@@ -1,11 +1,11 @@
 {% extends "layout.html.j2" %}
-{% block page %}Sign in{% endblock %}
+{% block page %}New group{% endblock %}
 {% block content %}
 
 <div class="container">
 	<section class="hero">
 		<div class="container has-text-centered">
-			<h1 class="title">Sign in</h1>
+			<h1 class="title">New group</h1>
 		</div>
 	</section>
 
@@ -13,20 +13,20 @@
 		<div class="columns">
 			<div class="column is-one-third is-offset-one-third">
 				<div class="box">
-					<form action="{{ url_for('login') }}" method="POST">
+					<form action="{{ url_for('newgroup') }}" method="POST">
 						<div class="field">
-							<label class="label">Username</label>
+							<label class="label">Name</label>
 							<div class="control">
-								<input class="input" type="text" name="username" placeholder="Text input">
+								<input class="input" type="text" name="name" placeholder="Text input">
 							</div>
 						</div>
 						<div class="field">
-							<label class="label">Password</label>
+							<label class="label">Description</label>
 							<div class="control">
-								<input class="input" type="text" name="password" placeholder="Text input">
+								<textarea class="textarea" name="description"></textarea>
 							</div>
 						</div>
-						<input type="submit" value="Sign in">
+						<input type="submit" value="Create">
 					</form>
 				</div>
 			</div>

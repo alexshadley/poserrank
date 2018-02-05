@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request, session
 from poserrank import app, db
-from poserrank.models import User
+from poserrank.models import User, Group
 
 @app.route('/')
 def index():
@@ -24,8 +24,7 @@ def login():
 		if query.count() > 0: # check if any results came up
 			user = query.first()
 			if user.password == request.form['password']: # if the passwords match, log the user in
-				session['username'] = user.username
-				session['authenticated'] = True
+				session['user'] = user.__dict__
 				return redirect(url_for('index'))
 			else:
 				return 'wrong password'
@@ -36,9 +35,8 @@ def login():
 # simple endpoint to log the current user out
 @app.route('/logout/')
 def logout():
-	if session['authenticated']:
-		session.pop('username', None)
-		session['authenticated'] = False
+	if 'user' in session:
+		session.pop('user', None)
 	return redirect(url_for('index'))
 
 @app.route('/newuser/', methods=['GET', 'POST'])
@@ -54,3 +52,27 @@ def newuser():
 		db.session.add(newUser)
 		db.session.commit()
 		return redirect(url_for('index'))
+
+@app.route('/newgroup/', methods=['GET', 'POST'])
+def newgroup():
+	if 'user' in session:
+		if request.method == 'GET':
+			return render_template('newgroup.html.j2')
+
+		elif request.method == 'POST':
+			newGroup = Group(name=request.form['name'],
+						description=request.form['description'])
+			db.session.add(newGroup)
+			db.session.commit()
+			return redirect(url_for('index'))
+
+	else:
+		return redirect(url_for('index'))
+
+@app.route('/groups/')
+def groups():
+	if 'user' in session:
+		query = Group.query.all()
+		return(render_template('groups.html.j2', groups=query))
+	else:
+		return(redirect(url_for('index')))
