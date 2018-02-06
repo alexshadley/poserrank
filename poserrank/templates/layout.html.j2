@@ -15,7 +15,7 @@
 				<a class="navbar-item" href="{{ url_for('top') }}">Top</a>
 			</div>
 			<div class="navbar-end">
-				{% if user in session %}
+				{% if 'user' in session %}
 					<span class="navbar-item">{{ session['user']['username'] }}</span>
 					<a class="navbar-item" href="{{ url_for('logout') }}">Logout</a>
 				{% else %}
@@ -27,5 +27,7 @@
 		</nav>
 
 		<div id="content">{% block content %}{% endblock %}</div>
+
+		<div>{{ session }}</div>
 	</body>
 </html>

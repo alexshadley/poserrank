@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, request, session
 from poserrank import app, db
 from poserrank.models import User, Group
+from poserrank.tools import dictifyUser
 
 @app.route('/')
 def index():
@@ -24,7 +25,7 @@ def login():
 		if query.count() > 0: # check if any results came up
 			user = query.first()
 			if user.password == request.form['password']: # if the passwords match, log the user in
-				session['user'] = user.__dict__
+				session['user'] = dictifyUser(user)
 				return redirect(url_for('index'))
 			else:
 				return 'wrong password'
@@ -35,8 +36,7 @@ def login():
 # simple endpoint to log the current user out
 @app.route('/logout/')
 def logout():
-	if 'user' in session:
-		session.pop('user', None)
+	session.clear()
 	return redirect(url_for('index'))
 
 @app.route('/newuser/', methods=['GET', 'POST'])
