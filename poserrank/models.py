@@ -27,8 +27,8 @@ class User(db.Model):
 		secondary=association_table,
 		back_populates='users')
 
-	sent_invitations = db.relationship('Invitations')
-	recieved_invitations = db.relationship('Invitations')
+#	sent_invitations = db.relationship('Invitations')
+#	recieved_invitations = db.relationship('Invitations')
 
 	def __repr__(self):
 		return '<User %r>' % self.username
@@ -43,14 +43,14 @@ class Group(db.Model):
 		secondary=association_table,
 		back_populates='groups')
 
-	invitations = db.relationship('Invitations')
+#	invitations = db.relationship('Invitations')
 
 	def __repr__(self):
 		return '<Group %r>' % self.name
 
-class Invitation(db.Model):
+"""class Invitation(db.Model):
 	__tablename__ = 'Invitations'
 	id = db.Column(db.Integer, primary_key=True)
 	sender_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
 	recipient_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
-	group_id = db.Column(db.Integer, db.ForeignKey('Group.id'))
+	group_id = db.Column(db.Integer, db.ForeignKey('Group.id'))"""
